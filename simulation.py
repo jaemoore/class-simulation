@@ -173,7 +173,10 @@ class Simulation(object):
                 return
 
         # give up and assign to an open class
-        assigned_grade_list = cohort_list[0][grade] + cohort_list[1][grade]
+        if random.random() < 0.5:
+            assigned_grade_list = cohort_list[0][grade] + cohort_list[1][grade]
+        else:
+            assigned_grade_list = cohort_list[1][grade] + cohort_list[0][grade]
 
         # let's try their grade first
         for clazz in assigned_grade_list:

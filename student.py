@@ -23,13 +23,16 @@ class Student(object):
             self.contacts[student.student_id] = 1
 
             for student_id, degree in student.contacts.items():
+                if student_id == self.student_id:
+                    continue
+
                 if student_id not in self.contacts:
                     self.contacts[student_id] = degree + 1
                 else:
                     self.contacts[student_id] = min(degree + 1, self.contacts.get(student_id, maxsize))
 
     def get_contact_sum_by_degree(self) -> Dict[int, int]:
-        degree_dict = {}
+        degree_dict: Dict = {}
 
         for degree in self.contacts.values():
             degree_dict[degree] = degree_dict.get(degree, 0) + 1
@@ -64,5 +67,3 @@ class StudentFactory(object):
     @staticmethod
     def build() -> Student:
         return Student(**StudentFactory.factory.student_dict())
-
-

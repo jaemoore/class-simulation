@@ -30,7 +30,7 @@ def main():
         'students_per_class': 15,
         'cohort_switches': 20,
         'class_size_fudge': 1.1,
-        'class_assignment_retry': 25,
+        'class_assignment_retry': 150,
         'outside_grade_probability': {
             9: 0.0,
             10: 0.033333,
@@ -40,7 +40,7 @@ def main():
         'iterations': 20,
         'percentage_in_class': 0.75,
         'max_degree': 12,
-        'schedule': hdsb_schedule
+        'schedule': two_week_schedule
     }
 
     config = SimulationParams(**params_dict)
